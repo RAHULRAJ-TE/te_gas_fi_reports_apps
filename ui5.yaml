@@ -15,6 +15,16 @@ server:
             - /resources
             - /test-resources
           url: https://ui5.sap.com
+        backend:
+          - path: /sap
+            url: http://saps4dev.web.connect.te.com:44303
+            destination: DS4_100
+          # - path: /sap
+          #   url: http://sapgwdev.web.connect.te.com:44305
+          #   destination: DG1_016
+          - path: /odata/v2
+            url: https://te-nfxsk61jb3xb8rzn-dev-te-gas-fi-reports-cap-srv.cfapps.us10-001.hana.ondemand.com
+            destination: TE_Finance_Report
     - name: fiori-tools-appreload
       afterMiddleware: compression
       configuration:

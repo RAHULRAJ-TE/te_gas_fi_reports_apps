@@ -1,6 +1,85 @@
 <mvc:View controllerName="com.te.fi.report.controller.Main"
-    xmlns:mvc="sap.ui.core.mvc"
-    xmlns="sap.m">
-    <Page id="page" title="{i18n>title}">
-    </Page>
+            xmlns:mvc="sap.ui.core.mvc"
+            displayBlock="true"
+            xmlns="sap.m"
+            xmlns:f="sap.f"
+            xmlns:fb="sap.ui.comp.filterbar"
+            xmlns:svm="sap.ui.comp.smartvariants"
+            xmlns:core="sap.ui.core"
+        >
+    <f:DynamicPage headerExpanded="{/headerExpanded}">
+        <f:header>
+            <f:DynamicPageHeader pinnable="false">
+                 <f:content>
+                    <fb:FilterBar
+                        id="filterbar"
+                        persistencyKey="myPersKey"
+                        useToolbar="false"
+                        search="onSearch"
+                        filterChange=".onFilterChange"
+                        afterVariantLoad=".onAfterVariantLoad"
+                    >
+                        <fb:filterGroupItems>
+                            <fb:FilterGroupItem
+                                name="TCode"
+                                label="{i18n>TCode}"
+                                visibleInFilterBar="true"
+                                groupName="Group1"
+                            >
+                                <fb:control>
+                                        <Label text="T Code" labelFor="Tcode" />
+                                    	<ComboBox
+                                            required="true"
+                                            id="Tcode"
+                                            items="{
+                                                path: '/TcodeValueHelp',
+                                                sorter: { path: 'TcodeName' }
+                                            }">
+                                            <core:Item key="{TcodeName}" text="{TcodeName}" />
+                                        </ComboBox>
+                                </fb:control>
+                            </fb:FilterGroupItem>
+
+                            <fb:FilterGroupItem
+                                name="Varinat"
+                                label="{i18n>variant}"
+                                groupName="Group1"
+                                visibleInFilterBar="true"
+                            >
+                                <fb:control>
+                                <Label text="Varinat" labelFor="Varinat" />
+                                    <ComboBox
+                                            required="true"
+                                            id="Varinat"
+                                            items="{
+                                                path: '/VariantValueHelp',
+                                                sorter: { path: 'Variant' }
+                                            }">
+                                            <core:Item key="{Variant}" text="{Variant}" />
+                                    </ComboBox>
+                                </fb:control>
+                            </fb:FilterGroupItem>
+                        </fb:filterGroupItems>
+                    </fb:FilterBar>
+                </f:content> 
+            </f:DynamicPageHeader>
+        </f:header>
+        <f:content>
+            <Table
+                id="idReportTable"
+                sticky="ColumnHeaders,HeaderToolbar"
+				inset="false"
+				growing="true"
+                noDataText="No data found. Try again."
+            >
+                <headerToolbar >
+                    <OverflowToolbar >
+                        <content>
+                          <Title text="{i18n>report}" level="H1" visible="true"/>
+                        </content>
+                    </OverflowToolbar>
+                </headerToolbar>
+            </Table>
+        </f:content>
+    </f:DynamicPage>
 </mvc:View>
