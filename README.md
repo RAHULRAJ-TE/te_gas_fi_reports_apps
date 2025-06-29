@@ -8,16 +8,16 @@
 |**Template Used**<br>Basic|
 |**Service Type**<br>None|
 |**Service URL**<br>N/A|
-|**Module Name**<br>com_te_fi_report|
+|**Module Name**<br>te_gas_fi_report|
 |**Application Title**<br>Finance Report|
-|**Namespace**<br>com.te.fi.report|
+|**Namespace**<br>te.gas.fi.report|
 |**UI5 Theme**<br>sap_horizon|
 |**UI5 Version**<br>1.135.0|
 |**Enable Code Assist Libraries**<br>False|
 |**Enable TypeScript**<br>False|
 |**Add Eslint configuration**<br>False|
 
-## com_te_fi_report
+## te_gas_fi_report
 
 Finance Report
 

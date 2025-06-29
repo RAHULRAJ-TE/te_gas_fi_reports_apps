@@ -1,9 +1,10 @@
-<mvc:View controllerName="com.te.fi.report.controller.Main"
+<mvc:View controllerName="te.gas.fi.report.controller.Main"
             xmlns:mvc="sap.ui.core.mvc"
             displayBlock="true"
             xmlns="sap.m"
             xmlns:f="sap.f"
             xmlns:fb="sap.ui.comp.filterbar"
+            xmlns:l="sap.ui.layout"
             xmlns:svm="sap.ui.comp.smartvariants"
             xmlns:core="sap.ui.core"
         >
@@ -31,6 +32,7 @@
                                     	<ComboBox
                                             required="true"
                                             id="Tcode"
+                                            selectionChange="onSelectTCode"
                                             items="{
                                                 path: '/TcodeValueHelp',
                                                 sorter: { path: 'TcodeName' }
@@ -50,10 +52,10 @@
                                 <Label text="Varinat" labelFor="Varinat" />
                                     <ComboBox
                                             required="true"
-                                            id="Varinat"
+                                            id="Variant"
+                                            enabled="false"
                                             items="{
-                                                path: '/VariantValueHelp',
-                                                sorter: { path: 'Variant' }
+                                                path: '/VariantValueHelp'
                                             }">
                                             <core:Item key="{Variant}" text="{Variant}" />
                                     </ComboBox>
@@ -65,21 +67,31 @@
             </f:DynamicPageHeader>
         </f:header>
         <f:content>
+        <l:VerticalLayout id="tableLayout">
             <Table
                 id="idReportTable"
                 sticky="ColumnHeaders,HeaderToolbar"
 				inset="false"
-				growing="true"
+                growingThreshold='5000'
                 noDataText="No data found. Try again."
             >
                 <headerToolbar >
                     <OverflowToolbar >
                         <content>
                           <Title text="{i18n>report}" level="H1" visible="true"/>
+                          <ToolbarSpacer></ToolbarSpacer>
+				          <Button	icon="sap-icon://download" press="onDataExport" />
                         </content>
                     </OverflowToolbar>
                 </headerToolbar>
             </Table>
+            	<FlexBox
+				height="100px"
+				alignItems="Center"
+				justifyContent="Center">
+				<Button id="btnMore" press="onNext" visible="false" text="Load More.." type="Default" class="sapUiTinyMarginTop" width="100%"/>
+			</FlexBox>
+            </l:VerticalLayout >
         </f:content>
     </f:DynamicPage>
 </mvc:View>

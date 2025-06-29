@@ -1,7 +1,7 @@
 /*global QUnit*/
 
 sap.ui.define([
-	"com/te/fi/report/comtefireport/controller/Main.controller"
+	"te/gas/fi/report/comtefireport/controller/Main.controller"
 ], function (Controller) {
 	"use strict";
 

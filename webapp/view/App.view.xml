@@ -1,4 +1,4 @@
-<mvc:View controllerName="com.te.fi.report.controller.App"
+<mvc:View controllerName="te.gas.fi.report.controller.App"
     displayBlock="true"
     xmlns:mvc="sap.ui.core.mvc"
     xmlns="sap.m">

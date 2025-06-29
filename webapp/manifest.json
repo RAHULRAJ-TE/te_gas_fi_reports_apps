@@ -1,7 +1,7 @@
 {
   "_version": "1.65.0",
   "sap.app": {
-    "id": "com.te.fi.report",
+    "id": "te.gas.fi.report",
     "type": "application",
     "i18n": "i18n/i18n.properties",
     "applicationVersion": {
@@ -25,6 +25,19 @@
               "odataVersion": "2.0"
           }
       }
+   },
+   "crossNavigation": {
+     "inbounds": {
+       "FiReportsNew-Managed": {
+         "semanticObject": "FiReportsNew",
+         "action": "Managed",
+         "title": "{{flpTitle}}",
+         "signature": {
+           "parameters": {},
+           "additionalParameters": "allowed"
+         }
+       }
+     }
    }
   },
   "sap.ui": {
@@ -70,7 +83,7 @@
       "i18n": {
         "type": "sap.ui.model.resource.ResourceModel",
         "settings": {
-          "bundleName": "com.te.fi.report.i18n.i18n"
+          "bundleName": "te.gas.fi.report.i18n.i18n"
         }
       }
     },
@@ -89,9 +102,9 @@
         "transition": "slide",
         "type": "View",
         "viewType": "XML",
-        "path": "com.te.fi.report.view",
+        "path": "te.gas.fi.report.view",
         "async": true,
-        "viewPath": "com.te.fi.report.view"
+        "viewPath": "te.gas.fi.report.view"
       },
       "routes": [
         {
@@ -110,10 +123,14 @@
       }
     },
     "rootView": {
-      "viewName": "com.te.fi.report.view.App",
+      "viewName": "te.gas.fi.report.view.App",
       "type": "XML",
       "id": "App",
       "async": true
     }
+  },
+  "sap.cloud": {
+    "public": true,
+    "service": "tegasfireportsapps"
   }
 }

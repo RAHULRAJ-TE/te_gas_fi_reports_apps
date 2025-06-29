@@ -7,7 +7,7 @@ sap.ui.define([
 
 	Opa5.extendConfig({
 		arrangements: new Startup(),
-		viewNamespace: "com.te.fi.report.view.",
+		viewNamespace: "te.gas.fi.report.view.",
 		autoWait: true
 	});
 });
